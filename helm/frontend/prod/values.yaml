@@ -115,7 +115,8 @@ volumeMounts: []
 #   mountPath: "/etc/foo"
 #   readOnly: true
 
-nodeSelector: {}
+nodeSelector:
+  kubernetes.io/hostname: software-design-devops-test-vm
 
 tolerations: []
 
