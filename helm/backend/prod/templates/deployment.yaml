@@ -45,6 +45,42 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          env:   # 👈 여기가 추가!
+            - name: KAKAO_REST_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: KAKAO_REST_API_KEY
+            - name: GOOGLE_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: GOOGLE_CLIENT_ID
+            - name: GOOGLE_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: GOOGLE_CLIENT_SECRET
+            - name: NAVER_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: NAVER_CLIENT_ID
+            - name: NAVER_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: NAVER_CLIENT_SECRET
+            - name: NAVER_CALLBACK_URL
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: NAVER_CALLBACK_URL ## 이거는 운영영용
+            - name: SLACK_WEBHOOK_URL
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: SLACK_WEBHOOK_URL
           {{- with .Values.livenessProbe }}
           livenessProbe:
             {{- toYaml . | nindent 12 }}
