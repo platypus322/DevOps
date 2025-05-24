@@ -128,3 +128,4 @@ tolerations:
     tolerationSeconds: 300
 
 affinity: {}
+# 시도1
