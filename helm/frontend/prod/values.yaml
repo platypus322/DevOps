@@ -59,20 +59,20 @@ service:
   port: 3000
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
-  enabled: false
-  className: ""
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  enabled: true
+  className: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
   hosts:
-    - host: chart-example.local
+    - host: www.xn--299a9h35r4sn3oar46g.site
       paths:
         - path: /
-          pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+          pathType: Prefix
+  tls:
+    - secretName: frontend-prod-tls
+      hosts:
+        - www.xn--299a9h35r4sn3oar46g.site
+
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
