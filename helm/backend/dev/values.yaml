@@ -120,6 +120,10 @@ volumeMounts: []
 nodeSelector:
   kubernetes.io/hostname: software-design-devops-test-vm
 
-tolerations: []
+tolerations:
+  - key: "node.kubernetes.io/not-ready"
+    operator: "Exists"
+    effect: "NoExecute"
+    tolerationSeconds: 300
 
 affinity: {}
