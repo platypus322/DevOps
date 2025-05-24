@@ -45,7 +45,7 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          {{- with .Values.livenessProbe }}
+
           env:   # 👈 여기가 추가!
             - name: KAKAO_REST_API_KEY
               valueFrom:
@@ -82,6 +82,7 @@ spec:
                 secretKeyRef:
                   name: backend-secret
                   key: SLACK_WEBHOOK_URL
+
           {{- with .Values.livenessProbe }}       
           livenessProbe:
             {{- toYaml . | nindent 12 }}
