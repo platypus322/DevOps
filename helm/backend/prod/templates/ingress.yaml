@@ -9,7 +9,6 @@ metadata:
     {{- if .Values.ingress.annotations }}
     {{- toYaml .Values.ingress.annotations | nindent 4 }}
     {{- end }}
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   {{- with .Values.ingress.className }}
   ingressClassName: {{ . }}
