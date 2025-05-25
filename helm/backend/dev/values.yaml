@@ -131,4 +131,7 @@ tolerations:
     tolerationSeconds: 300
 
 affinity: {}
+envFrom:
+  - secretRef:
+      name: backend-secret
 #test주석
