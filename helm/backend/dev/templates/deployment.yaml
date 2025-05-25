@@ -46,6 +46,9 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
 
+          envFrom:
+            {{- toYaml .Values.envFrom | nindent 12 }}
+
           env:   # 👈 여기가 추가!
             - name: KAKAO_REST_API_KEY
               valueFrom:
