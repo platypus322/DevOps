@@ -79,7 +79,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: backend-secret
-                  key: NAVER_CALLBACK_TEST_URL ## 이거는 운영영용
+                  key: NAVER_CALLBACK_URL ## 이거는 운영영용
             - name: SLACK_WEBHOOK_URL
               valueFrom:
                 secretKeyRef:
