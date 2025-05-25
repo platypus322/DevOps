@@ -46,7 +46,7 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
 
-          envFrom:
+          envFrom:    #envFrom 설정
             {{- toYaml .Values.envFrom | nindent 12 }}
 
           env:   # 👈 여기가 추가!
@@ -118,3 +118,4 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+ 
