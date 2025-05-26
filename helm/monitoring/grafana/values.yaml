@@ -1,0 +1,31 @@
+replicaCount: 1
+image:
+  repository: grafana/grafana
+  pullPolicy: IfNotPresent
+  tag: latest
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  hosts:
+    - host: monitor.소설고등학교.site
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: monitor-tls
+      hosts:
+        - monitor.소설고등학교.site
+
+adminUser: admin
+adminPassword: changeme
+
+nodeSelector:
+  kubernetes.io/hostname: software-design-devops-test-vm
