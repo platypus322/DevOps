@@ -13,7 +13,7 @@ nodeSelector:
 service:
   type: ClusterIP
   port: 9100
-  portName: metrics
+  portName: http-metrics
 
 serviceMonitor:
   enabled: true
