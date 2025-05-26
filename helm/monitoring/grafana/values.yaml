@@ -1,7 +1,5 @@
 replicaCount: 1
-
 image:
-  enabled: true
   repository: grafana/grafana
   pullPolicy: IfNotPresent
   tag: latest
