@@ -1,0 +1,18 @@
+replicaCount: 1
+
+image:
+  repository: prom/prometheus
+  tag: v2.51.0
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources: {}
+nodeSelector:
+  kubernetes.io/hostname: software-design-devops-test-vm
+
+serviceAccount:
+  create: true
+  name: prometheus
