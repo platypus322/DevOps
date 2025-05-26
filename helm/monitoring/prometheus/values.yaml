@@ -32,3 +32,7 @@ ingress:
     - secretName: prometheus-tls
       hosts:
         - prometheus.xn--299a9h35r4sn3oar46g.site
+# 👇 아래 블록을 추가하세요
+prometheus:
+  prometheusSpec:
+    serviceMonitorSelectorNilUsesHelmValues: false
