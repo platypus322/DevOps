@@ -15,3 +15,10 @@ app.kubernetes.io/component: monitoring
 app.kubernetes.io/part-of: {{ .Chart.Name }}
 helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 {{- end }}
+
+{{/*
+Chart metadata for helm.sh/chart label
+*/}}
+{{- define "prometheus.chart" -}}
+{{- printf "%s-%s" .Chart.Name .Chart.Version -}}
+{{- end }}
