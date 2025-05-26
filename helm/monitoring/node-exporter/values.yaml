@@ -10,6 +10,9 @@ resources: {}
 nodeSelector:
   kubernetes.io/hostname: software-design-devops-test-vm
 
+podLabels:
+  job: node-exporter  # ← Grafana에서 쉽게 조회되도록
+
 service:
   type: ClusterIP
   port: 9100
